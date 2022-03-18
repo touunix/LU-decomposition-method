@@ -1,20 +1,21 @@
 %Mateusz Gabryel
-%Metoda Dekompozycji LU - rozwi¹zywanie uk³adu rownañ liniowych
+%Metoda Dekompozycji LU - rozwiÄ…zywanie ukÅ‚adu rownaÅ„ liniowych
 clc
+clear
 format short g;
 %------------------------------------------------------------
-disp('Szukamy wektora X z równania A*X=B')
+disp('Szukamy wektora X z rÃ³wnania A*X=B')
 disp('----------------------------------------------------');
-%Macierz wspó³czynników A:
-disp('Dana jest macierz wspó³czynników A (4x4):');
+%Macierz wspÃ³Å‚czynnikÃ³w A:
+disp('Dana jest macierz wspÃ³Å‚czynnikÃ³w A (4x4):');
 A = [  4.510, -1.700,  2.250,  2.170;
       -3.970, -0.960, -8.440,  1.690;
        4.710, -8.340, -9.970, -3.050;
        6.650,  4.420,  3.100, -1.800;];
 disp(A);
 %------------------------------------------------------------
-%Wektor wyrazów wolnych B:
-disp('oraz wektor wyrazów wolnych B (1x4):');
+%Wektor wyrazÃ³w wolnych B:
+disp('oraz wektor wyrazÃ³w wolnych B (1x4):');
 B = [ -43.890, 83.000, -16.030, -40.260;];
 disp(B);
 %------------------------------------------------------------     
@@ -49,43 +50,43 @@ disp(Q);
 X = [1,1,1,1;];       
 Y = [1,1,1,1;];
 %------------------------------------------------------------
-%Dzia³ania dla wyznaczenia Y (Q*Y=B ==> Y=B/Q):                            
+%DziaÅ‚ania dla wyznaczenia Y (Q*Y=B ==> Y=B/Q):                            
 Y(1) =  B(1)/Q(1,1); 
 Y(2) = (B(2)-Q(2,1)*Y(1))/Q(2,2);
 Y(3) = (B(3)-Q(3,1)*Y(1)-Q(3,2)*Y(2))/Q(3,3);
 Y(4) = (B(4)-Q(4,1)*Y(1)-Q(4,2)*Y(2)-Q(4,3)*Y(3))/Q(4,4);
-%Dzia³ania dla wyznaczenia X (Q*X=Y ==> X=Y/Q):
+%DziaÅ‚ania dla wyznaczenia X (Q*X=Y ==> X=Y/Q):
 X(4) = Y(4);                 
 X(3) = Y(3)-(X(4)*Q(3,4));
 X(2) = Y(2)-(Q(2,3)*X(3))-(Q(2,4)*X(4));
 X(1) = Y(1)-(Q(1,2)*X(2))-(Q(1,3)*X(3))-(Q(1,4)*X(4));
 %------------------------------------------------------------
-%Wyœwietlenie wektora X:
+%WyÅ›wietlenie wektora X:
 disp('----------------------------------------------------');
-disp('Rozwi¹zanie zadania:');
-disp('Wektor X z równania A*X=B:');
+disp('RozwiÄ…zanie zadania:');
+disp('Wektor X z rÃ³wnania A*X=B:');
 disp(X);
 disp('----------------------------------------------------');
-%Wektor Z do zapisania wyników dzia³añ:
+%Wektor Z do zapisania wynikÃ³w dziaÅ‚aÅ„:
 Z = [1,1,1,1;];
-%Dzia³ania do wyznaczenia Z (A*X=Z):
+%DziaÅ‚ania do wyznaczenia Z (A*X=Z):
 for x=1:4
     Z(x) = A(x,1)*X(1) + A(x,2)*X(2) + A(x,3)*X(3) + A(x,4)*X(4);
 end
-%Wyœwietlenie wektorów Z i B do porównania i sprawdzenia:
-disp('Wektor Z po dzia³aniach A*X:')
+%WyÅ›wietlenie wektorÃ³w Z i B do porÃ³wnania i sprawdzenia:
+disp('Wektor Z po dziaÅ‚aniach A*X:')
 disp(Z);
-disp('Wyœwietlenie wektora B do porównania z wektorem Z:');
+disp('WyÅ›wietlenie wektora B do porÃ³wnania z wektorem Z:');
 disp(B);
 %------------------------------------------------------------
-%Uciêcie precyzji w celu porównania i sprawdzenia poprawnoœci
+%UciÄ™cie precyzji w celu porÃ³wnania i sprawdzenia poprawnoÅ›ci
 a = fix(Z);
 b = fix(B);
 
 if(a == b)
-    disp('Wektory Z oraz B s¹ identyczne. Rozwi¹zanie poprawne.');
+    disp('Wektory Z oraz B sÄ… identyczne. RozwiÄ…zanie poprawne.');
 else
-    disp('Wektory Z oraz B NIE s¹ identyczne. Rozwi¹zanie niepoprawne.');
+    disp('Wektory Z oraz B NIE sÄ… identyczne. RozwiÄ…zanie niepoprawne.');
 end
 %------------------------------------------------------------
 %Koniec

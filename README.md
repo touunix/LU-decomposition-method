@@ -4,5 +4,4 @@ A method that allows you to determine the vector X, from the equation A * X = B,
 
 # PL Metoda dekompozycji LU - rozwiązywanie układu równań liniowych
 ###### Opis:
-Metoda pozwalająca na wyznaczanie wektora X,
-z równania A*X=B, gdzie dana jest macierz A oraz wektor B. Działania w tej metodzie wykonywane są na macierzy pomocniczej/operacyjnej Q. W celu sprawdzenia poprawności obliczeń został przewidziany moduł, który odpowiada za wykonanie mnożenia macierzy A oraz wektora X i zapisania wyniku do wektora Z. W końcowej fazie wektory B oraz Z są porównywane.
+Metoda pozwalająca na wyznaczanie wektora X, z równania A*X=B, gdzie dana jest macierz A oraz wektor B. Działania w tej metodzie wykonywane są na macierzy pomocniczej/operacyjnej Q. W celu sprawdzenia poprawności obliczeń został przewidziany moduł, który odpowiada za wykonanie mnożenia macierzy A oraz wektora X i zapisania wyniku do wektora Z. W końcowej fazie wektory B oraz Z są porównywane.
